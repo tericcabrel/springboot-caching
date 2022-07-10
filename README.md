@@ -1,4 +1,5 @@
 # Spring Boot Caching
+This project demonstrates the use of caching with REdis to speed the request response
 
 ## Start a Docker container for MySQL
 ```shell
@@ -15,9 +16,17 @@ mvn install
 ```shell
 mvn spring-boot:run
 ```
+The application starts on the port **8030**
 
 ## Endpoints
-|
-| Endpoint | Method | Parameters |
-|          |        |            |
 
+| Endpoint         | Method | Parameters                                                  |
+|------------------|--------|-------------------------------------------------------------|
+| /categories      | GET    | Retrieve all categories                                     |
+| /products        | GET    | Retrieve all products                                       |
+| /products/search | GET    | Search products by name, category, price and availability   |
+| /products        | POST   | Add a new product                                           |
+
+## Postman collection
+I prepared a Postman collection with all the requests above. You can download, import and test the application without hassle
+[Check out the collection](https://www.getpostman.com/collections/f7a3a84434a3660baa8f)

@@ -14,7 +14,7 @@ import javax.validation.constraints.Positive;
 @Data
 @Accessors(chain = true)
 public class CreateProductDto {
-    @NotBlank(message = "This field is required")
+    @Positive(message = "This field is required")
     private long categoryId;
 
     @NotBlank(message = "This field is required")
@@ -22,12 +22,10 @@ public class CreateProductDto {
 
     private String description;
 
-    @NotBlank(message = "This field is required")
     @Positive(message = "Must be greater than 0")
     private float price;
 
-    @NotBlank(message = "This field is required")
-    private boolean isAvailable;
+    private int isAvailable;
 
     private String categoryName;
 
@@ -37,7 +35,7 @@ public class CreateProductDto {
         product.setName(this.name)
                 .setDescription(description)
                 .setPrice(price)
-                .setAvailable(isAvailable);
+                .setAvailable(isAvailable == 1);
 
         return product;
     }
