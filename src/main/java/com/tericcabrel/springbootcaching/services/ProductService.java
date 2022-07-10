@@ -46,7 +46,10 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public List<Product> findAll() {
+    public List<Product> findAll() throws InterruptedException {
+        // Simulate server pressure and high computation
+        Thread.sleep(3000);
+
         return productRepository.findAllByIdGreaterThanOrderByIdDesc(0);
     }
 
@@ -55,6 +58,7 @@ public class ProductService {
     }
 
     public List<Product> search(SearchProductDto searchProductDto) throws InterruptedException {
+        // Simulate server pressure and high computation
         Thread.sleep(3000);
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();

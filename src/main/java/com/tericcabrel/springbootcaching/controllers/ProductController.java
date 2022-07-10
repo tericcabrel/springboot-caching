@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<ProductListResponse> getAll() {
+    public ResponseEntity<ProductListResponse> getAll() throws InterruptedException {
         List<Product> categories = productService.findAll();
 
         return ResponseEntity.ok(new ProductListResponse(categories));
