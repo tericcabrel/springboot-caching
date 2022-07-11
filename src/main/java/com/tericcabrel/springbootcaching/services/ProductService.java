@@ -122,4 +122,12 @@ public class ProductService {
 
         return query.getResultList();
     }
+
+    public Optional<Product> findById(long id) {
+        return productRepository.findById(id);
+    }
+
+    public Product update(Product product) {
+        return productRepository.save(product);
+    }
 }

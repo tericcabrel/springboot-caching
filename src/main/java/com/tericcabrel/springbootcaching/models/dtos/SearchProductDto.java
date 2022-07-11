@@ -22,4 +22,23 @@ public class SearchProductDto {
     private float maxPrice;
 
     private String available; // yes or no
+
+    public String buildCacheKey(String keyPrefix) {
+        StringBuilder builder = new StringBuilder(keyPrefix);
+
+        builder.append("-").append(name.toLowerCase());
+
+        if (category != null) {
+            builder.append("-").append(category.toLowerCase());
+        }
+
+        builder.append("-").append(minPrice);
+        builder.append("-").append(maxPrice);
+
+        if (available != null) {
+            builder.append("-").append(available);
+        }
+
+        return builder.toString();
+    }
 }
