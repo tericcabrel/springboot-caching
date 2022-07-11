@@ -7,6 +7,12 @@ docker run -d -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=product-inventory 
 ```
 To stop the docker container, run the command `docker stop mysqldb && docker container prune -f`
 
+## Start a Docker container for Redis
+```shell
+docker run -d --name redisdb -p 6379:6379 redis
+```
+To stop the docker container, run the command `docker stop redisdb && docker container prune -f`
+
 ## Install Maven dependencies
 ```shell
 mvn install
